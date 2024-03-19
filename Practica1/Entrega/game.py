@@ -18,22 +18,30 @@ word_displayed = "_" * len(secret_word)
 # Mostrarla palabra parcialmente adivinada
 print(f"Palabra: {word_displayed}")
 
-for i in range(max_attempts):
+#Cuento los fallos hasta llegar a mi maximo de fallos que seria "max_attempts"
+fallos = 0
+
+while (fallos < max_attempts):
     # Pedir al jugador que ingrese una letra
     letter = input("Ingresa una letra: ").lower()
 
     # Verifico que lo ingresado no sea vacio
     if(not letter.isalpha()):
         print("EROR: Debe ingresar una letra")
+        fallos+= 1 #Si el usuriario no ingresa nada, lo tomo como fallo  a mi criterio
+    
     # Verificar si la letra ya ha sido adivinada  
     elif letter in guessed_letters:
          print("Ya has intentado con esa letra. Intenta con otra.")
-         continue
+         fallos+= 1 #Si ingresa una letra que ya habia ingresado, lo tomo como fallo
+         continue   # ya que inconcientemente uso un intento pro decirlo de una manera
+    
     # Verificar si la letra está en la palabra secreta
     elif letter in secret_word:
         print("¡Bien hecho! La letra está en la palabra.")
     else:
         print("Lo siento, la letra no está en la palabra.")
+        fallos+= 1 #Si la letra o esta, es un claro fallo
 
     # Agregar la letra a la lista de letras adivinadas        
     guessed_letters.append(letter)
