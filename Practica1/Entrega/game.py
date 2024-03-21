@@ -11,7 +11,7 @@ max_attempts = 10
 # Lista para almacenar las letras adivinadas
 guessed_letters = []
 
-def levelDifficulty(secret_word,level):
+def levelDifficulty(secret_word,level,guessed_letters):
     newWord = []
     match level:
         case 1:  #si el nivel elegido es facil
@@ -19,21 +19,19 @@ def levelDifficulty(secret_word,level):
                 for letter in secret_word:
                     if letter in vocales:   #muestro las vocales
                         newWord.append(letter)
+                        guessed_letters.append(letter)
                     else:
                         newWord.append("_")
         case 2:  #muestro la primera y ultima letra si la dificultad es 2
-                primera = 0
-                ultima = len(secret_word) -1
-                actual = 0
                 for letter in secret_word:
-                    if (actual == primera) or (actual == ultima):
+                    if (letter == (secret_word[0])) or (letter == (secret_word[-1])):
                         newWord.append(letter)
+                        guessed_letters.append(letter)
                     else:
                         newWord.append("_")
-                    actual+=1
         case 3:
                 newWord = ["_"] * len(secret_word)  #si el 3 por lo tanto no muestro ninguna letra
-    return newWord
+    return newWord,guessed_letters
 
 
 print("¡Bienvenido al juego de adivinanzas!")
@@ -44,7 +42,7 @@ level = int(input("Nivel: ")) #lee la dificultad
 print("Estoy pensando en una palabra. ¿Puedes adivinar cuál es?")
 
 # Cargo la palabra segun la dificultad (con o sin letras ya debloqueadas)
-letters = levelDifficulty(secret_word,level)
+letters,guessed_letters = levelDifficulty(secret_word,level,guessed_letters)
 
 word_displayed = "".join(letters)
 # Mostrarla palabra parcialmente adivinada
