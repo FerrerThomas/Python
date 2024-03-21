@@ -11,10 +11,42 @@ max_attempts = 10
 # Lista para almacenar las letras adivinadas
 guessed_letters = []
 
+def levelDifficulty(secret_word,level):
+    newWord = []
+    match level:
+        case 1:  #si el nivel elegido es facil
+                vocales = "aeiou"
+                for letter in secret_word:
+                    if letter in vocales:   #muestro las vocales
+                        newWord.append(letter)
+                    else:
+                        newWord.append("_")
+        case 2:  #muestro la primera y ultima letra si la dificultad es 2
+                primera = 0
+                ultima = len(secret_word) -1
+                actual = 0
+                for letter in secret_word:
+                    if (actual == primera) or (actual == ultima):
+                        newWord.append(letter)
+                    else:
+                        newWord.append("_")
+                    actual+=1
+        case 3:
+                newWord = ["_"] * len(secret_word)  #si el 3 por lo tanto no muestro ninguna letra
+    return newWord
+
+
 print("¡Bienvenido al juego de adivinanzas!")
+print("""Elige un nivel de dificulta: |1| Facil
+                             |2| Medio
+                             |3| Dificil""")
+level = int(input("Nivel: ")) #lee la dificultad
 print("Estoy pensando en una palabra. ¿Puedes adivinar cuál es?")
 
-word_displayed = "_" * len(secret_word)
+# Cargo la palabra segun la dificultad (con o sin letras ya debloqueadas)
+letters = levelDifficulty(secret_word,level)
+
+word_displayed = "".join(letters)
 # Mostrarla palabra parcialmente adivinada
 print(f"Palabra: {word_displayed}")
 
@@ -26,15 +58,16 @@ while (fallos < max_attempts):
     letter = input("Ingresa una letra: ").lower()
 
     # Verifico que lo ingresado no sea vacio
+    print() #solo para que quede mas bonito con una separacion :p
     if(not letter.isalpha()):
         print("EROR: Debe ingresar una letra")
-        fallos+= 1 #Si el usuriario no ingresa nada, lo tomo como fallo  a mi criterio
+        fallos+= 1  #Si el usuriario no ingresa nada, lo tomo como fallo  a mi criterio
     
     # Verificar si la letra ya ha sido adivinada  
     elif letter in guessed_letters:
          print("Ya has intentado con esa letra. Intenta con otra.")
-         fallos+= 1 #Si ingresa una letra que ya habia ingresado, lo tomo como fallo
-         continue   # ya que inconcientemente uso un intento pro decirlo de una manera
+         fallos+= 1     #Si ingresa una letra que ya habia ingresado, lo tomo como fallo
+         continue       #ya que inconcientemente uso un intento por decirlo de una manera
     
     # Verificar si la letra está en la palabra secreta
     elif letter in secret_word:
@@ -47,12 +80,11 @@ while (fallos < max_attempts):
     guessed_letters.append(letter)
 
     # Mostrar la palabra parcialmente adivinada
-    letters = []
+    i = 0
     for letter in secret_word:
         if letter in guessed_letters:
-            letters.append(letter)
-        else:
-            letters.append("_")
+            letters[i] = letter
+        i+= 1
 
     word_displayed = "".join(letters)
     print(f"Palabra: {word_displayed}")
