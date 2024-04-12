@@ -1,12 +1,17 @@
 
 def buscarGoleador(datosJugadores):
-    goleador=''
-    maxGoles=0
-    for jugador,datos in datosJugadores.items(): #key: juagdor   datos: datos 
-        if (datos['Goles a favor'])> maxGoles:
-            maxGoles= datos['Goles a favor']
-            goleador = jugador
+    goleador = max(datosJugadores, key=lambda jugador: datosJugadores[jugador]['Goles a favor'])
+    maxGoles = datosJugadores[goleador]['Goles a favor']
     return goleador,maxGoles
+
+def crearEstructura(names, goals,goals_avoided,assists):
+    datosJugadores= {}
+    nombres = names.replace(',','').split()
+    for i in range(len(nombres)):
+        datos = {'Goles a favor': goals[i],'Goles evitados': goals_avoided[i],'Asistencias': assists[i]}
+        datosJugadores[nombres[i]] = datos
+    return datosJugadores
+
 
 def calcularPromedioEquipo(datosJugadores,partidos):
     goles=0
