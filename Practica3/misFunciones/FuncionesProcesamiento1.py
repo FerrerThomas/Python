@@ -9,6 +9,7 @@ def Procesamiento1(rutaAirports,rutaCitys,rutaCustom):
         indices.append('elevation_name') #agrego el nuevo dato
         indices.append('prov_name')
         print(indices)
+        return indices
 
     def calcularAltura(altura):
         if (not altura):
@@ -30,7 +31,7 @@ def Procesamiento1(rutaAirports,rutaCitys,rutaCustom):
                 return prov
         if not encontre:
             return 'No encontrada'
-
+    
     readAirports = pathlib.Path(rutaAirports) # direcciono cada archivo
     writeAirports = pathlib.Path(rutaCustom)
     readCity = pathlib.Path(rutaCitys)
@@ -65,7 +66,7 @@ def imprimirOpcion(rutaCustom):
     
     def mostrarAeropueros(opcionElegida):   
         with open(rutaCustom, mode='r', encoding='utf-8') as archivo:
-            garage = csv.DictreaderAirports(archivo)
+            garage = csv.DictReader(archivo)
             for aeropuerto in garage:
                 if aeropuerto['elevation_name'] == opcionElegida:
                     print(aeropuerto)
@@ -84,6 +85,15 @@ def imprimirOpcion(rutaCustom):
             else:
                 print('| ERROR | Opcion invalida... Ingrese de nuevo')
 
+def imprimirSegunElevacion(rutaCustom):
+    import csv
+    import pathlib
+
+    def aeropuertos_buscar(rutaCustom,ingresado):
+        air = pathlib.Path(rutaCustom)
+        with air.open(mode='r', encoding='utf-8') as archivo:
+
+
 def imprimirOpcion2(rutaCustom):
     import csv 
     import pathlib
@@ -91,7 +101,7 @@ def imprimirOpcion2(rutaCustom):
     def mostrarAeropueros2(opcionElegida,rutaCustom):
         Aeropuertos = pathlib.Path(rutaCustom)   
         with Aeropuertos.open(mode='r', encoding='utf-8') as archivo:
-            garage = csv.DictreaderAirports(archivo)
+            garage = csv.DictReader(archivo)
             for aeropuerto in garage:
                 if aeropuerto['elevation_name'] == opcionElegida:
                     print(aeropuerto)
