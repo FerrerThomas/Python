@@ -1,0 +1,79 @@
+[
+    {
+        "usuario": "eewe",
+        "mail": "ewew",
+        "genero": "Masculino",
+        "fecha": "2024-06-22 18:50:04",
+        "dificultad": "facil",
+        "tematica": "aeropuertos",
+        "preguntas_acertadas": 2,
+        "preguntas_no_acertadas": 5,
+        "puntos": 0
+    },
+    {
+        "usuario": "eewe",
+        "mail": "ewew",
+        "genero": "Masculino",
+        "fecha": "2024-05-28 19:00:43",
+        "dificultad": "facil",
+        "tematica": "aeropuertos",
+        "preguntas_acertadas": 3,
+        "preguntas_no_acertadas": 5,
+        "puntos": 3
+    },
+    {
+        "usuario": "eeeewe",
+        "mail": "ewew",
+        "genero": "Femenino",
+        "fecha": "2024-05-28 19:00:43",
+        "dificultad": "facil",
+        "tematica": "aeropuertos",
+        "preguntas_acertadas": 6,
+        "preguntas_no_acertadas": 5,
+        "puntos": 0
+    },
+    {
+        "usuario": "ewewewe",
+        "mail": "ewew",
+        "genero": "Masculino",
+        "fecha": "2024-02-28 19:00:43",
+        "dificultad": "facil",
+        "tematica": "aeropuertos",
+        "preguntas_acertadas": 2,
+        "preguntas_no_acertadas": 5,
+        "puntos": 6
+    },
+    {
+        "usuario": "eewe",
+        "mail": "ewew",
+        "genero": "Otros",
+        "fecha": "2024-06-27 19:00:43",
+        "dificultad": "facil",
+        "tematica": "aeropuertos",
+        "preguntas_acertadas": 5,
+        "preguntas_no_acertadas": 5,
+        "puntos": 2
+    },
+    {
+        "usuario": "eewewqeewe",
+        "mail": "ewew",
+        "genero": "Alumno",
+        "fecha": "2024-06-22 19:00:43",
+        "dificultad": "facil",
+        "tematica": "aeropuertos",
+        "preguntas_acertadas": 2,
+        "preguntas_no_acertadas": 5,
+        "puntos": 8
+    },
+    {
+        "usuario": "eewe",
+        "mail": "ewew",
+        "genero": "Masculino",
+        "fecha": "2024-06-23 19:00:43",
+        "dificultad": "facil",
+        "tematica": "aeropuertos",
+        "preguntas_acertadas": 0,
+        "preguntas_no_acertadas": 5,
+        "puntos": 0
+    }
+]
